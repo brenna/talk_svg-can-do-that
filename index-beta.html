@@ -1,0 +1,728 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>SVG Can Do That?!?</title>
+
+		<meta name="description" content="How to craft geometric designs with front-end code">
+		<meta name="author" content="Brenna O'Brien">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/brenzone.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/tomorrow-night-bright.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+        <!-- ===============================================
+          ::<text>::
+        ================================================ -->
+
+        <section>
+          <h3>&lt;text&gt;</h3>
+          <div class="third">
+            <style>
+              .svg-text {
+                font-size: 10px;
+                fill: hotpink;
+              }
+            </style>
+            <svg class="example" viewBox="0 0 100 50">
+              <text class="svg-text" x="5" y="20">I'm some text</text>
+              <text class="svg-text" x="5" y="40">No line wraps unfortunately</text>
+            </svg>
+          </div>
+          <div class="two-thirds">
+            <pre><code class="html">
+  &lt;svg viewBox="0 0 100 100"&gt;
+    &lt;text class="svg-text" x="5" y="20"&gt;
+      I'm some text
+    &lt;/text&gt;
+    &lt;text class="svg-text" x="5" y="40"&gt;
+      No line wraps unfortunately
+    &lt;/text&gt;
+  &lt;/svg&gt;
+            </code></pre>
+            <pre><code class="css">
+    .svg-text {
+      font-size: 16px;
+      fill: hotpink;
+    }
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>&lt;tspan&gt;, dx & dy</h3>
+          <div class="third">
+            <style>
+              .svg-text tspan {
+                fill: goldenrod;
+              }
+            </style>
+            <svg class="example" viewBox="0 0 100 100">
+              <text class="svg-text" x="5" y="20">
+                just like <tspan dx="5" dy="-5">span</tspan>
+              </text>
+              <text class="svg-text" x="5" y="50">
+                gr8 for forcing a
+                <tspan x="5" dy="1.2em">line break</tspan>
+              </text>
+            </svg>
+          </div>
+          <div class="two-thirds">
+            <pre><code class="html">
+  &lt;svg viewBox="0 0 100 100"&gt;
+    &lt;text class="svg-text" x="5" y="20"&gt;
+      just like &lt;tspan dx="5" dy="-5"&gt;span&lt;/tspan&gt;
+    &lt;/text&gt;
+    &lt;text class="svg-text" x="5" y="50"&gt;
+      gr8 for forcing a
+      &lt;tspan x="5" dy="1.2em"&gt;line break&lt;/tspan&gt;
+    &lt;/text&gt;
+  &lt;/svg&gt;
+            </code></pre>
+            <pre><code>
+    .svg-text tspan {
+      fill: goldenrod;
+    }
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>responsive!</h2>
+          <h3>editorialized text</h3>
+          <p><a class="ref" href="http://codepen.io/brenna/full/raOBaw/" target="_blank">http://codepen.io/brenna/full/raOBaw/</a></p>
+        </section>
+
+        <section>
+          <h3>&lt;textPath&gt;</h3>
+          <div class="third">
+            <svg viewBox="0 0 70 115" height="500">
+              <defs>
+                <path id="lightning-bolt" d="M4 5 L68 5 L20 45 L64 61 L25 112">
+              </defs>
+              <text fill="goldenrod" font-size="6">
+                <textPath xlink:href="#lightning-bolt">Lightning bolt! Lightning bolt! Lightning bolt! Lightning bolt! Lightning bolt! Lightning bolt!</textPath>
+              </text>
+            </svg>
+          </div>
+          <div class="two-thirds">
+            <pre><code class="html">
+  &lt;svg viewBox="0 0 70 115"&gt;
+    &lt;defs&gt;
+      &lt;path id="lightning-bolt"
+      d="M4 5 L68 5 L20 45 L64 61 L25 112"/&gt;
+    &lt;/defs&gt;
+    &lt;text fill="goldenrod" font-size="6"&gt;
+      &lt;textPath xlink:href="#lightning-bolt"&gt;
+        Lightning bolt! Lightning bolt! Lightning bolt! Lightning bolt! Lightning bolt! Lightning bolt!
+      &lt;/textPath&gt;
+    &lt;/text&gt;
+  &lt;/svg&gt;
+            </code></pre>
+          </div>
+        </section>
+
+
+
+        <!-- TODO: maybe add drinking text example  http://codepen.io/sol0mka/full/dFypl/ -->
+
+        <!-- ===============================================
+          ::gradients::
+        ================================================ -->
+        <section data-background="#128B98">
+          <h2>&lt;linearGradient&gt;</h2>
+          <p>&</p>
+          <h2>&lt;radialGradient&gt;</h2>
+        </section>
+
+        <section>
+          <p>before we get started:</p>
+          <h2>&lt;defs&gt;</h2>
+          <p class="fragment">where you define re-usable elements for your SVGs</p>
+        </section>
+
+        <section>
+          <p>set direction with a line</p>
+          <div class="third">
+            <svg viewBox="0 0 100 100">
+              <defs>
+                <linearGradient id="diagonal" x1="0" x2="100%" y1="0" y2="100%">
+                  <stop stop-color="hotpink" offset="0%"/>
+                  <stop stop-color="goldenrod" offset="100%"/>
+                </linearGradient>
+              </defs>
+              <rect x="0" y="0" width="100" height="100" fill="url(#diagonal)">
+            </svg>
+          </div>
+          <div class="two-thirds">
+            <pre><code>
+    &lt;linearGradient id="diagonal"
+      x1="0" x2="100%" y1="0" y2="100%" &gt;
+      &lt;stop stop-color="hotpink" offset="0%"/&gt;
+      &lt;stop stop-color="goldenrod" offset="100%"/&gt;
+    &lt;/linearGradient&gt;
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>&lt;radialGradient&gt;</h3>
+          <div class="third">
+            <svg viewBox="0 0 100 100">
+              <radialGradient id="radial">
+                <stop stop-color="hotpink" offset="20%"/>
+                <stop stop-color="goldenrod" offset="100%"/>
+              </radialGradient>
+              <rect x="0" y="0" width="100" height="100" fill="url(#radial)">
+            </svg>
+          </div>
+          <div class="two-thirds">
+            <pre><code>
+  &lt;svg viewBox="0 0 100 100"&gt;
+    &lt;radialGradient id="gradient"&gt;
+      &lt;stop stop-color="hotpink" offset="30%"/&gt;
+      &lt;stop stop-color="goldenrod" offset="100%"/&gt;
+    &lt;/radialGradient&gt;
+    &lt;rect fill="url(#gradient)" x="0" y="0"
+      width="100" height="100" &gt;
+  &lt;/svg&gt;
+            </code></pre>
+          </div>
+          <a href="http://tutorials.jenkov.com/svg/svg-gradients.html" class="ref">moar gradient info</a>
+        </section>
+
+
+
+
+        <section>
+          <h3>hot tip:</h3>
+          <p><code>gradientUnits="userSpaceOnUse"</code></p>
+          <!-- <div class="fragment"> -->
+            <p>fits gradient to the viewBox</p>
+            <div class="half">
+              <img src="img/text-gradient-lots.png" alt="" class="naked" width="400">
+              <p><code>objectBoundingBox</code> (default)</p>
+            </div>
+            <div class="half">
+              <img src="img/text-gradient.png" alt="" class="naked" width="400">
+              <p><code>userSpaceOnUse</code></p>
+            </div>
+          <!-- </div> -->
+        </section>
+
+        <!-- ===============================================
+          ::<image>::
+        ================================================ -->
+        <section data-background="#128B98">
+          <h2>&lt;image&gt;</h2>
+        </section>
+
+        <section>
+          <h3>&lt;image&gt;</h3>
+          <pre><code>
+  &lt;image xlink:href="path-to-image.jpg" width="500" height="300" x="0" y="0"&gt;&lt;/image&gt;
+          </code></pre>
+        </section>
+
+        <!-- TODO: revise the flow of this, maybe "Why bother?" (larry david gif), then introduce pattern, which means...any image in any shape -->
+
+        <section>
+          <h2>¯\_(ツ)_/¯</h2>
+          <br>
+          <p>why bother?</p>
+        </section>
+
+
+
+        <section data-background="#128B98">
+          <h2>&lt;clipPath&gt;</h2>
+          <p>&</p>
+          <h2>&lt;mask&gt;</h2>
+        </section>
+
+        <section data-background="img/cookie-cutter.jpg">
+          <h3>&lt;clipPath&gt;</h3>
+          <p>use an SVG cookie cutter on another SVG element</p>
+        </section>
+
+        <section>
+          <p>make weird shaped cookies by<br> cutting at the edges of your dough</p>
+          <div class="half">
+            <svg viewBox="0 0 120 120" width="600">
+              <circle cx="50" cy="50" fill="goldenrod" r="45"  stroke-width="4"/>
+              <circle cx="80" cy="80" r="20" stroke="silver" fill="transparent"/>
+            </svg>
+          </div>
+          <div class="half">
+            <svg viewBox="0 0 120 120" width="600">
+              <defs>
+                <clipPath id="bite">
+                  <circle cx="80" cy="80" r="20"/>
+                </clipPath>
+              </defs>
+              <circle cx="50" cy="50" fill="goldenrod" r="45" clip-path="url(#bite)"stroke-width="4">
+            </svg>
+          </div>
+        </section>
+
+        <!-- TODO: add code example for clipping and masking?? OR pare down other code eg's -->
+
+        <section data-background-image="SRC/gradient.jpg">
+          <h3>&lt;mask&gt;</h3>
+          <p>like clipPath but fill colour matters</p>
+          <br>
+          <div class="fragment">
+            <p>black fill = opaque mask</p>
+            <p>white fill = transparent mask</p>
+          </div>
+        </section>
+
+        <section>
+          <p>gradient filled mask for fun fade effects</p>
+          <div class="half">
+            <svg viewBox="0 0 120 120" width="600">
+              <defs>
+                <linearGradient x1="0" y1="0" y2="100%" x2="100%" id="mask-fade">
+                  <stop offset="20%" stop-color="#fff"/>
+                  <stop offset="60%" stop-color="#000"/>
+                </linearGradient>
+              </defs>
+              <circle cx="50" cy="50" fill="goldenrod" r="45"  stroke-width="4"/>
+              <circle cx="80" cy="80" r="20"  fill="url(#mask-fade)"/>
+            </svg>
+          </div>
+          <div class="half">
+            <svg viewBox="0 0 120 120" width="600">
+              <defs>
+                <mask id="masky">
+                  <circle cx="80" cy="80" r="20" fill="url(#mask-fade)"/>
+                </mask>
+              </defs>
+              <circle cx="50" cy="50" fill="goldenrod" r="45" mask="url(#masky)"stroke-width="4">
+            </svg>
+          </div>
+        </section>
+
+        <section>
+          <h3>mashup time again</h3>
+           <div class="fragment">
+            <p>SVG images<br>
+            +<br>
+            gradient masks</p>
+          </div>
+        </section>
+
+
+
+        <!-- TODO: maybe add filter stuff in hereee? -->
+
+        <!-- TODO: maybe do just <animate> as the heading and show different things to animate, stroke being one, morph being another -->
+        <section data-background="#128B98">
+          <h1>SVG animation techniques</h1>
+        </section>
+        <section data-background="#128B98">
+          <h2><code>stroke-dasharray</code></h2>
+          <p>+</p>
+          <h2><code>stroke-dashoffset</code></h2>
+        </section>
+
+        <section>
+            <h3><code>stroke-dasharray</code></h3>
+            <p>specify filled and blank dashes</p>
+            <div class="half">
+              <svg viewBox="0 0 100 20">
+                <line y1="10" y2="10" x2="100" stroke-dasharray="1 1" stroke="hotpink"/>
+              </svg>
+            </div>
+            <div class="half">
+              <pre><code>
+  stroke-dasharray="1 1"
+              </code></pre>
+            </div>
+            <div class="half">
+              <svg viewBox="0 0 100 20">
+                <line y1="10" y2="10" x2="100" stroke-dasharray="5 5" stroke="hotpink"/>
+              </svg>
+            </div>
+            <div class="half">
+              <pre><code>
+  stroke-dasharray="5 5"
+              </code></pre>
+            </div>
+            <div class="half">
+              <svg viewBox="0 0 100 20">
+                <line y1="10" y2="10" x2="100" stroke-dasharray="5 5 5 20" stroke="hotpink"/>
+              </svg>
+            </div>
+            <div class="half">
+              <pre><code>
+  stroke-dasharray="5 5 5 20"
+              </code></pre>
+            </div>
+        </section>
+
+        <section>
+          <h3><code>stroke-dashoffset</code></h3>
+          <p>specify where your dash array starts</p>
+          <div class="half">
+            <svg viewBox="0 0 100 20">
+              <line y1="10" y2="10" x2="100" stroke-dasharray="5 5 5 20" stroke-dashoffset="0" stroke="hotpink">
+            </svg>
+          </div>
+          <div class="half">
+          <pre><code>
+  stroke-dashoffset="0"
+          </code></pre>
+          </div>
+          <div class="half">
+            <svg viewBox="0 0 100 20">
+              <line y1="10" y2="10" x2="100" stroke-dasharray="5 5 5 20" stroke-dashoffset="-5" stroke="hotpink">
+            </svg>
+          </div>
+          <div class="half">
+          <pre><code>
+  stroke-dashoffset="-5"
+          </code></pre>
+          </div>
+          <div class="half">
+            <svg viewBox="0 0 100 20">
+              <line y1="10" y2="10" x2="100" stroke-dasharray="5 5 5 20" stroke-dashoffset="-10" stroke="hotpink">
+            </svg>
+          </div>
+          <div class="half">
+          <pre><code>
+  stroke-dashoffset="-10"
+          </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>SVGs that draw themselves, part 1</h3>
+          <p><code>stroke-dasharray</code> as long as your path</p>
+          <div class="third">
+            <svg viewBox="0 0 100 10">
+              <line x2="100" stroke-dasharray="100 100" stroke-dashoffset="0" stroke="hotpink">
+            </svg>
+          </div>
+          <div class="two-thirds">
+          <pre><code>
+  &lt;svg viewBox="0 0 100 10"&gt;
+    &lt;line x2="100" stroke-dasharray="100 100"
+    stroke-dashoffset="0" stroke="hotpink"&gt;
+  &lt;/svg&gt;
+          </div>
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>SVGs that draw themselves, part 2</h3>
+          <p>animate <code>stroke-dashoffset</code></p>
+          <div class="third">
+            <svg viewBox="0 0 100 10">
+              <line x2="100" stroke-dasharray="100 100" stroke="hotpink">
+                <animate
+                  attributeName="stroke-dashoffset"
+                  dur="2"
+                  values="100; 0"
+                  repeatCount="indefinite"
+                />
+              </line>
+            </svg>
+          </div>
+          <div class="two-thirds">
+          <pre><code>
+  &lt;svg viewBox="0 0 100 10"&gt;
+    &lt;line x2="100" stroke-dasharray="100 100"
+    stroke-dashoffset="0" stroke="hotpink"&gt;
+      &lt;animate
+        attributeName="stroke-dashoffset"
+        dur="2"
+        values="0; 100"
+        repeatCount="indefinite"
+      /&gt;
+    &lt;/line&gt;
+  &lt;/svg&gt;
+            </code></pre>
+          </div>
+        </section>
+
+        <section data-background="#128B98">
+          <h2>&lt;animate&gt;</h2>
+        </section>
+
+        <section>
+          <h3>&lt;animate&gt;</h3>
+          <p>you can animate most SVG attributes right inside your SVG</p>
+          <a href="http://www.xanthir.com/etc/animatable-svg-attributes.html" class="ref">Animatable SVG attributes</a>
+        </section>
+
+        <section>
+          <h3>Q: Why not just &lt;animate&gt;<br> with CSS & JS?</h3>
+          <p class="fragment">A: <img src="img/cool-tweens.png"></p>
+        </section>
+
+        <section>
+          <h3>SVG shape tweens</h3>
+          <p>&lt;animate&gt; a path's <code>d</code> attribute</p>
+          <div class="third">
+            <svg viewBox="0 0 200 200">
+              <path fill="goldenrod">
+                <animate
+                  attributeName="d"
+                  dur="2"
+                  repeatCount="indefinite"
+                  values="
+                    M100,0 L200,100 L100,200 L0,100;
+                    M100,50 L125,100 L100,150 L75,100;
+                    M100,0 L200,100 L100,200 L0,100"
+                />
+              </path>
+            </svg>
+          </div>
+          <div class="two-thirds">
+<pre><code>
+  &lt;path fill="goldenrod"&gt;
+    &lt;animate attributeName="d"
+      dur="2"
+      repeatCount="indefinite"
+      values="
+        M100,0 L200,100 L100,200 L0,100;
+        M100,50 L125,100 L100,150 L75,100;
+        M100,0 L200,100 L100,200 L0,100"
+    /&gt;
+  &lt;/path&gt;
+  </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <p>all the cool tweens use bezier curves</p>
+          <svg viewBox="0 0 6 6" fill="hotpink"  width="400">
+            <g id="circle">
+                <path class="north">
+                  <animate
+                    attributeName="d"
+                    dur="3"
+                    keyTimes="0;0.1;0.4;0.6;0.9;1"
+                    repeatCount="indefinite"
+                    values="
+                    M 3 3
+                    q 0.3536 -0.3536 0.7071 -0.7071
+                    q -0.3 -0.2929 -0.7071 -0.2929
+                    q -0.4 0 -0.7071 0.2929
+                    q 0.3536 0.3536 0.7071 0.7071;
+
+                    M 3 3
+                    q 0.3536 -0.3536 0.7071 -0.7071
+                    q -0.3 -0.2929 -0.7071 -0.2929
+                    q -0.4 0 -0.7071 0.2929
+                    q 0.3536 0.3536 0.7071 0.7071;
+
+                    M 3 1.75
+                    q 0.4 0 0.7071 -0.2929
+                    q -0.3536 -0.3536 -0.7071 -0.7071
+                    q -0.3536 0.3536 -0.7071 0.7071
+                    q 0.3 0.2929 0.7071 0.2929;
+
+                    M 3 1.75
+                    q 0.4 0 0.7071 -0.2929
+                    q -0.3536 -0.3536 -0.7071 -0.7071
+                    q -0.3536 0.3536 -0.7071 0.7071
+                    q 0.3 0.2929 0.7071 0.2929;
+
+                    M 3 3
+                    q 0.3536 -0.3536 0.7071 -0.7071
+                    q -0.3 -0.2929 -0.7071 -0.2929
+                    q -0.4 0 -0.7071 0.2929
+                    q 0.3536 0.3536 0.7071 0.7071;
+
+                    M 3 3
+                    q 0.3536 -0.3536 0.7071 -0.7071
+                    q -0.3 -0.2929 -0.7071 -0.2929
+                    q -0.4 0 -0.7071 0.2929
+                    q 0.3536 0.3536 0.7071 0.7071
+                   ">
+                </path>
+                <path class="east">
+                  <animate
+                    attributeName="d"
+                    dur="3"
+                    keyTimes="0;0.1;0.4;0.6;0.9;1"
+                    repeatCount="indefinite"
+                    values="
+                    M 3 3
+                    q 0.3536 -0.3536 0.7071 -0.7071
+                    q 0.2929 0.3 0.2929 0.7071
+                    q 0 0.4 -0.2929 0.7071
+                    q -0.3536 -0.3536 -0.7071 -0.7071;
+
+                    M 3 3
+                    q 0.3536 -0.3536 0.7071 -0.7071
+                    q 0.2929 0.3 0.2929 0.7071
+                    q 0 0.4 -0.2929 0.7071
+                    q -0.3536 -0.3536 -0.7071 -0.7071;
+
+                    M 4.25 3
+                    q 0 -0.4 0.2929 -0.7071
+                    q 0.3536 0.3536 0.7071 0.7071
+                    q -0.3536 0.3536 -0.7071 0.7071
+                    q -0.2929 -0.3 -0.2929 -0.7071;
+
+                    M 4.25 3
+                    q 0 -0.4 0.2929 -0.7071
+                    q 0.3536 0.3536 0.7071 0.7071
+                    q -0.3536 0.3536 -0.7071 0.7071
+                    q -0.2929 -0.3 -0.2929 -0.7071;
+
+                    M 3 3
+                    q 0.3536 -0.3536 0.7071 -0.7071
+                    q 0.2929 0.3 0.2929 0.7071
+                    q 0 0.4 -0.2929 0.7071
+                    q -0.3536 -0.3536 -0.7071 -0.7071;
+
+                    M 3 3
+                    q 0.3536 -0.3536 0.7071 -0.7071
+                    q 0.2929 0.3 0.2929 0.7071
+                    q 0 0.4 -0.2929 0.7071
+                    q -0.3536 -0.3536 -0.7071 -0.7071
+                   ">
+                </path>
+                <path class="south">
+                  <animate
+                    attributeName="d"
+                    dur="3"
+                    keyTimes="0;0.1;0.4;0.6;0.9;1"
+                    repeatCount="indefinite"
+                    values="
+                    M 3 3
+                    q -0.3536 0.3536 -0.7071 0.7071
+                    q 0.3 0.2929 0.7071 0.2929
+                    q 0.4 0 0.7071 -0.2929
+                    q -0.3536 -0.3536 -0.7071 -0.7071;
+
+                    M 3 3
+                    q -0.3536 0.3536 -0.7071 0.7071
+                    q 0.3 0.2929 0.7071 0.2929
+                    q 0.4 0 0.7071 -0.2929
+                    q -0.3536 -0.3536 -0.7071 -0.7071;
+
+                    M 3 4.25
+                    q -0.4 0 -0.7071 0.2929
+                    q 0.3536 0.3536 0.7071 0.7071
+                    q 0.3536 -0.3536 0.7071 -0.7071
+                    q -0.3 -0.2929 -0.7071 -0.2929;
+
+                    M 3 4.25
+                    q -0.4 0 -0.7071 0.2929
+                    q 0.3536 0.3536 0.7071 0.7071
+                    q 0.3536 -0.3536 0.7071 -0.7071
+                    q -0.3 -0.2929 -0.7071 -0.2929;
+
+                    M 3 3
+                    q -0.3536 0.3536 -0.7071 0.7071
+                    q 0.3 0.2929 0.7071 0.2929
+                    q 0.4 0 0.7071 -0.2929
+                    q -0.3536 -0.3536 -0.7071 -0.7071;
+
+                    M 3 3
+                    q -0.3536 0.3536 -0.7071 0.7071
+                    q 0.3 0.2929 0.7071 0.2929
+                    q 0.4 0 0.7071 -0.2929
+                    q -0.3536 -0.3536 -0.7071 -0.7071
+                  ">
+                </path>
+                <path class="west">
+                  <animate
+                    attributeName="d"
+                    dur="3"
+                    keyTimes="0;0.1;0.4;0.6;0.9;1"
+                    repeatCount="indefinite"
+                    values="
+                    M 3 3
+                    q -0.3536 0.3536 -0.7071 0.7071
+                    q -0.2929 -0.3 -0.2929 -0.7071
+                    q 0 -0.4 0.2929 -0.7071
+                    q 0.3536 0.3536 0.7071 0.7071;
+
+                    M 3 3
+                    q -0.3536 0.3536 -0.7071 0.7071
+                    q -0.2929 -0.3 -0.2929 -0.7071
+                    q 0 -0.4 0.2929 -0.7071
+                    q 0.3536 0.3536 0.7071 0.7071;
+
+                    M 1.75 3
+                    q 0 0.4 -0.2929 0.7071
+                    q -0.3536 -0.3536 -0.7071 -0.7071
+                    q 0.3536 -0.3536 0.7071 -0.7071
+                    q 0.2929 0.3 0.2929 0.7071;
+
+                    M 1.75 3
+                    q 0 0.4 -0.2929 0.7071
+                    q -0.3536 -0.3536 -0.7071 -0.7071
+                    q 0.3536 -0.3536 0.7071 -0.7071
+                    q 0.2929 0.3 0.2929 0.7071;
+
+                    M 3 3
+                    q -0.3536 0.3536 -0.7071 0.7071
+                    q -0.2929 -0.3 -0.2929 -0.7071
+                    q 0 -0.4 0.2929 -0.7071
+                    q 0.3536 0.3536 0.7071 0.7071;
+
+                    M 3 3
+                    q -0.3536 0.3536 -0.7071 0.7071
+                    q -0.2929 -0.3 -0.2929 -0.7071
+                    q 0 -0.4 0.2929 -0.7071
+                    q 0.3536 0.3536 0.7071 0.7071
+                  ">
+                </path>
+               </g>
+          </svg>
+          <br>
+          <a class="fragment" href="http://bren.zone/svg-quarters/" target="_blank">SVG Quarters</a>
+        </section>
+
+
+
+      </div> <!-- /.slides -->
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script src="js/slides.js"></script>
+
+	</body>
+</html>

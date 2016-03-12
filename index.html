@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>SVG Can Do That?!?</title>
+
+		<meta name="description" content="How to craft geometric designs with front-end code">
+		<meta name="author" content="Brenna O'Brien">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/brenzone.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/tomorrow-night-bright.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+        <section data-background="img/bg-diag.png">
+					<h1 class="main">SVG Can Do <strong>That?!?</strong></h1>
+          <br>
+          <br>
+          <p class="main-credit"><span class="name">Brenna O'Brien</span> / <a class="twitter" href="http:://twitter.com">@brnnbrn</a></p>
+				</section>
+
+        <!-- ===============================================
+          ::SVG u know and <3::
+        ================================================ -->
+
+				<section data-background="#128B98">
+					<h1>the SVG u know and <svg viewBox="0 -4.831 100 100" width="120"><path fill="hotpink"
+              stroke="#fff" d="M98.2,17.305c-2.493-6.252-7.495-11.51-14.416-14.766C77.667-0.34,71.076-0.686,65.085,1.073  C59.096,2.832,53.71,7.626,50,13.168C46.291,7.626,40.905,2.832,34.916,1.073S22.334-0.34,16.217,2.539  C9.297,5.794,4.295,11.053,1.801,17.305c-2.493,6.252-2.504,13.511,0.638,20.73C9.161,53.477,49.787,89.719,50,90.338  c0.213-0.619,40.84-36.861,47.561-52.303C100.705,30.815,100.693,23.557,98.2,17.305z"/></svg></h1>
+				</section>
+
+        <section>
+          <ul>
+            <h3>we <svg viewBox="0 -4.831 100 100" width="50"><path fill="#fff" d="M98.2,17.305c-2.493-6.252-7.495-11.51-14.416-14.766C77.667-0.34,71.076-0.686,65.085,1.073  C59.096,2.832,53.71,7.626,50,13.168C46.291,7.626,40.905,2.832,34.916,1.073S22.334-0.34,16.217,2.539  C9.297,5.794,4.295,11.053,1.801,17.305c-2.493,6.252-2.504,13.511,0.638,20.73C9.161,53.477,49.787,89.719,50,90.338  c0.213-0.619,40.84-36.861,47.561-52.303C100.705,30.815,100.693,23.557,98.2,17.305z"/></svg> SVG because:</h3>
+            <li><p>resolution independent</p></li>
+            <li class="fragment"><p>great for icons and logos</p></li>
+            <li class="fragment">
+              <p>XML based<br> = easy to manipulate with CSS & JS</p>
+              <pre><code>
+  .icon:hover {
+    fill: goldenrod;
+  }
+              </code></pre>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <p>anatomy of an SVG element</p>
+          <p class="heart-equals">
+            <svg class="middle" viewBox="-5 -4.831 110 100"><path fill="hotpink"
+              stroke="#fff" d="M98.2,17.305c-2.493-6.252-7.495-11.51-14.416-14.766C77.667-0.34,71.076-0.686,65.085,1.073  C59.096,2.832,53.71,7.626,50,13.168C46.291,7.626,40.905,2.832,34.916,1.073S22.334-0.34,16.217,2.539  C9.297,5.794,4.295,11.053,1.801,17.305c-2.493,6.252-2.504,13.511,0.638,20.73C9.161,53.477,49.787,89.719,50,90.338  c0.213-0.619,40.84-36.861,47.561-52.303C100.705,30.815,100.693,23.557,98.2,17.305z"/></svg>
+              =&nbsp;
+              <img class="middle"src="img/svg-anatomy.png" alt="" width="1000">
+          </p>
+        </section>
+
+        <section>
+          <h1>viewBox Rules Everything Around Me</h1>
+          <p>(V.R.E.A.M.)</p>
+        </section>
+
+        <!-- ===============================================
+          ::moar than just vector shapes::
+        ================================================ -->
+
+        <section data-background="img/iceberg.jpg">
+          <h1>more than just vector shapes</h1>
+        </section>
+
+        <section>
+         <h3>there are 80 valid SVG elements</h3>
+         <img src="img/svg-elems.jpg" alt="" width="400">
+          <aside class="notes">
+            <p>80 valid SVG elements, crazy, right?</p>
+            <a class="ref" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element">SVG Element on MDN</a>
+          </aside>
+        </section>
+
+        <section>
+          <h3>including...</h3>
+          <p>&lt;text&gt;</p>
+          <p>&lt;image&gt;</p>
+          <p>&lt;linearGradient&gt;</p>
+          <p>&lt;mask&gt;</p>
+          <p>&lt;filter&gt;</p>
+          <p>&lt;animate&gt;</p>
+          <p span class="fragment">&lt;switch&gt; (lolwut)</p>
+        </section>
+
+         <!-- ===============================================
+          Editorialized Text
+        ================================================ -->
+        <section data-background="#128B98">
+          <h3 class="main">SVG can do...</h3>
+          <h1>editorialized text</h1>
+        </section>
+
+        <section>
+          <h3>editorialized text</h3>
+          <img src="img/text-what-is-love.png" width="700" style="padding: 20px; background:#000">
+          <p><a class="ref" href="http://codepen.io/brenna/full/raOBaw/" target="_blank">http://codepen.io/brenna/full/raOBaw/</a></p>
+        </section>
+
+        <section>
+          <ul>
+            <h3>editorialized &lt;text&gt;</h3>
+            <li><p><code>&lt;tspan&gt;</code>, works like <code>&lt;span&gt;</code></p></li>
+            <li><p>fine grained positioning with <code>x</code>, <code>y</code>, <code>dx</code> & <code>dy</code></p></li>
+            <li><p>class any SVG element for custom CSS</p></li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>editorialized text</h3>
+          <pre><code>
+  &lt;svg viewBox="0 0 300 200"&gt;
+    &lt;text&gt;
+      &lt;tspan x="0" dy="1em" font-size="53">what is&lt;/tspan&gt;
+      &lt;tspan class="love" x="0" dy="0.8em" font-size="84">love&lt;/tspan&gt;
+      &lt;tspan x="0" dy="1em" font-size="28">oh baby don't&lt;/tspan&gt;
+      &lt;tspan x="0" dy="0.9em" font-size="48">hurt me&lt;/tspan&gt;
+    &lt;/text&gt;
+  &lt;/svg&gt;
+          </code></pre>
+          <pre><code>
+  text { fill: #fff;}
+
+  .love { fill: #FF6666;}
+          </code></pre>
+        </section>
+
+        <section>
+          <h1>responsive!</h1>
+          <h3>editorialized text</h3>
+          <img src="img/responsive-text.gif" alt="" width="600">
+        </section>
+
+        <section data-background="img/rwd.gif">
+          <h2>responsive SVG</h2>
+          <br>
+          <p>viewBox + flexible container</p>
+        </section>
+
+        <section>
+          <h3>curved text</h3>
+            <style>
+              svg.curved-text {
+                font-family: 'Merriweather', serif;
+                font-weight: 900;
+
+              }
+            </style>
+            <svg class="curved-text" viewBox="0 50 500 250" width="920">
+              <defs>
+               <path id="arc" d="M82.372,165.969 c44.126-35.084,60.236-50.782,150.325-50.782s131.802,28.198,158.194,62.77" />
+              </defs>
+              <text fill="#5D509D" width="500">
+                <textPath xlink:href="#arc" x="250" font-size="44"  dy="100">Are You Afraid</textPath>
+                <tspan dy="20" x="240" text-anchor="middle" font-size="44">of the</tspan>
+                <tspan dy="1em" x="240" text-anchor="middle" font-size="75">Dark?</tspan>
+              </text>
+            </svg>
+            <br>
+            <br>
+        </section>
+
+        <section>
+          <h3>curved text</h3>
+          <p>1. create a path</p>
+          <img src="img/text-path.png" alt="" width="590">
+        </section>
+
+        <section>
+          <h3>curved text</h3>
+          <p>2. put text on path</p>
+<pre><code>
+  &lt;defs&gt;
+   &lt;path id="arc" d="M82.372,165.969 c44.126-35.084,60.236-50.782,150.325-50.782s131.802,28.198,158.194,62.77" /&gt;
+  &lt;/defs&gt;
+  &lt;text fill="#5D509D" width="500"&gt;
+    &lt;textPath xlink:href="#arc" x="250" font-size="44"  dy="100"&gt;
+      Are You Afraid
+    &lt;/textPath&gt;
+    &lt;!-- ...some more tspans... --&gt;
+  &lt;/text&gt;
+  </code></pre>
+  <br>
+        </section>
+
+        <section data-background="img/trusty-steed.jpg">
+          <h2>&lt;defs&gt;</h2>
+          <p>where you define re-usable SVG components</p>
+          <p>a trusty steed as we combine SVG techniques</p>
+        </section>
+
+         <!-- ===============================================
+          fancy fills
+        ================================================ -->
+        <section data-background="#128B98">
+          <h3 class="main">SVG can do...</h3>
+          <h1>fancy fills</h1>
+        </section>
+
+        <section>
+          <h3>&lt;linearGradient&gt;</h3>
+          <div class="third">
+            <svg viewBox="0 0 100 100">
+              <defs>
+                <linearGradient id="linear" x1="0" x2="100%" y1="0" y2="100%">
+                  <stop stop-color="hotpink" offset="0%"/>
+                  <stop stop-color="goldenrod" offset="100%"/>
+                </linearGradient>
+              </defs>
+              <rect x="0" y="0" width="100" height="100" fill="url(#linear)">
+            </svg>
+          </div>
+          <div class="two-thirds">
+            <pre><code>
+  &lt;linearGradient
+    x1="0" x2="100%" y1="0" y2="100%" &gt;
+    &lt;stop stop-color="hotpink" offset="0%"/&gt;
+    &lt;stop stop-color="goldenrod" offset="100%"/&gt;
+  &lt;/linearGradient&gt;
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>gradient fills</h3>
+          <p>1. make it a fill with <code>&lt;defs&gt;</code></p>
+<pre><code>
+  &lt;defs&gt;
+    &lt;lnearGradient id="fire"&gt;
+      &lt;!-- ...gradient stops --&gt;
+    &lt;/lnearGradient&gt;
+  &lt;/defs&gt;
+
+  &lt;rect fill="url(#fire)" x="0" y="0" width="100" height="100"/&gt;
+
+</code></pre>
+<br>
+        </section>
+
+        <section>
+          <h3>gradient fills</h3>
+          <p>2. fill unconventional shapes!</p>
+            <svg x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" height="500">
+              <defs>
+                <linearGradient id="fire" x1="0" x2="100%" y1="0" y2="100%">
+                  <stop stop-color="hotpink" offset="0%"/>
+                  <stop stop-color="goldenrod" offset="100%"/>
+                </linearGradient>
+              </defs>
+              <path fill="url(#fire)" d="M69.3,49.1c0.3,0.9,6.4-1.1,8.8,5.9c2,6.1-2.1,8.9-1.7,9.7c0.5,1,10.8,3,11,9.5c0.2,9-12.2,11.1-15.2,11.1  c-17.5,0.2-27.7-2.7-36.6-2.5c-3.6,0.1-10,3-14.3,2.5c-3.7-0.5-9.6-3.5-8.6-11.2c1.5-11.8,10.9-9.3,11-10c0.1-1-3.4-2.4-2-8.6  c1.6-7.1,7.7-5.3,8.2-7.2c0.2-0.7-1.6-5.4-0.5-9.3c1.2-4.4,9-6.7,9.3-7.4c0.5-1-1.4-1.8-1.4-2.9c0.1-4.2,4.1-6,4.2-8.8  c0-1.4-1.1-3.4-0.4-4.5c1.5-2.2,13.6,5.6,16.7,9.2c4.7,5.6,3.7,8.2,2.9,12c0,0,7.2,0.8,9.1,4.3C71.8,44.5,69.1,48.4,69.3,49.1z   M37.3,43.3c-4.6,0-8.3,4.7-8.3,10.6s3.7,10.6,8.3,10.6s8.3-4.7,8.3-10.6S41.9,43.3,37.3,43.3z M61.5,43.3c-4.6,0-8.3,4.7-8.3,10.6  s3.7,10.6,8.3,10.6s8.3-4.7,8.3-10.6S66.1,43.3,61.5,43.3z M35.3,68.5c0,0,3.3,8.2,13.8,8.2c9.7,0,13.8-8.1,13.8-8.1L35.3,68.5z   M37.3,48.4c-2.3,0-4.1,2.6-4.1,5.8s1.8,5.8,4.1,5.8c2.3,0,4.1-2.6,4.1-5.8S39.6,48.4,37.3,48.4z M61.6,48.4c-2.3,0-4.1,2.6-4.1,5.8  s1.8,5.8,4.1,5.8c2.3,0,4.1-2.6,4.1-5.8S63.8,48.4,61.6,48.4z"/>
+          </svg>
+        </section>
+
+        <!-- TOOD: add noun project attribution -->
+        <section>
+          <h3>image fills</h3>
+          <svg viewBox="0 0 100 100" width="500">
+            <defs>
+              <pattern id="bowie" width="100" height="100" patternUnits="userSpaceOnUse">
+                <image xlink:href="img/bowie.jpg" width="100" height="100" preserveAspectRatio="xMidYMid slice">
+              </pattern>
+            </defs>
+            <path fill="url(#bowie)"
+              d="M98.2,17.305c-2.493-6.252-7.495-11.51-14.416-14.766C77.667-0.34,71.076-0.686,65.085,1.073  C59.096,2.832,53.71,7.626,50,13.168C46.291,7.626,40.905,2.832,34.916,1.073S22.334-0.34,16.217,2.539  C9.297,5.794,4.295,11.053,1.801,17.305c-2.493,6.252-2.504,13.511,0.638,20.73C9.161,53.477,49.787,89.719,50,90.338  c0.213-0.619,40.84-36.861,47.561-52.303C100.705,30.815,100.693,23.557,98.2,17.305z"/>
+          </svg>
+        </section>
+
+
+        <section data-background="img/pattern.png">
+          <h3>&lt;pattern&gt;</h3>
+          <p>turns any SVG element into a fill</p>
+          <p>most fun with &lt;image&gt;</p>
+          <p>&nbsp;</p>
+        </section>
+
+        <section data-background="img/pattern.png">
+          <h3>&lt;pattern&gt;</h3>
+          <p>turns any SVG element into a fill</p>
+          <p class="strike">most fun with &lt;image&gt;</p>
+          <p>most fun with gifs</p>
+        </section>
+
+        <section>
+          <h3>gif fills, you betcha!</h3>
+          <svg width="600" height="486.24px"
+             viewBox="-99.979 -162.047 300 486.24" fill="url(#geordi)">
+             <!-- magic! -->
+            <defs>
+              <pattern id="geordi" patternUnits="userSpaceOnUse" width="800" height="600" x="-180" y="-162">
+                  <image xlink:href="img/yeahgeordii.gif" x="0" y="0" width="400" height="500" preserveAspectRatio="xMidyMid slice"/>
+              </pattern>
+            </defs>
+            <!-- /magic! -->
+            <path  d="M53.531-149
+            C-49.869-1.886-87.109,139.671-92.709,305.44C-58.591,272.187,50.02,139.858,88.765,132.167
+            c25.854-5.135,48.595,26.062,102.307,128.312C178.008,116.698,118.265-54.826,53.531-149L53.531-149z"/>
+          </svg>
+        </section>
+
+        <section>
+          <h3>image fills</h3>
+          <pre><code class="html">
+  &lt;defs&gt;
+    &lt;pattern id="bowie" width="100" height="100"
+      patternUnits="userSpaceOnUse"&gt;
+      &lt;image  xlink:href="img/bowie.jpg" width="100" height="100"
+        preserveAspectRatio="xMidYMid slice"&gt;
+    &lt;/pattern&gt;
+  &lt;/defs&gt;
+  &lt;path fill="url(#bowie)"
+    d="M98.2,17.305c-2.493-6.252-7.495-11.51-14.416-14.766C77.667-0.34,71.076-0.686,65.085,1.073  C59.096,2.832,53.71,7.626,50,13.168C46.291,7.626,40.905,2.832,34.916,1.073S22.334-0.34,16.217,2.539  C9.297,5.794,4.295,11.053,1.801,17.305c-2.493,6.252-2.504,13.511,0.638,20.73C9.161,53.477,49.787,89.719,50,90.338  c0.213-0.619,40.84-36.861,47.561-52.303C100.705,30.815,100.693,23.557,98.2,17.305z"
+  /&gt;
+        </code></pre>
+        </section>
+
+        <section>
+          <ul>
+            <h3 class="left">image fill hot tips:</h3>
+            <li><p>V.R.E.A.M.</p></li>
+            <li><p>match &lt;pattern&gt; and &lt;image&gt;<br> width and height to viewBox</p></li>
+            <li><p>
+              <code>patternUnits="userSpaceOnUse"</code>
+            </p></li>
+          </ul>
+            <br>
+            <br>
+        </section>
+
+        <section>
+          <ul>
+            <h3>image fill hot tips:</h3>
+            <li>
+              <p>&lt;image&gt; <em>needs</em> a width and height<br></p>
+            </li>
+            <li class="sad-bowie clearfix">
+              <img src="img/sad-bowie.png" alt="" width="218" class="naked">
+              <span class="txt"><code>preserveAspectRatio</code><br> to fill shape<br></span>
+            </li>
+            <br>
+            <a href="http://codepen.io/jonitrythall/blog/preserveaspectratio-in-svg" class="ref left">A Look At preserveAspectRatio in SVG</a>
+          </ul>
+        </section>
+
+        <section data-background="img/frankenstein.jpg">
+          <h1>let's make a new thing</h1>
+        </section>
+
+        <section>
+          <p>editorialized text + gradient fills</p>
+          <img src="img/text-gradient.png" alt="" width="600" class="naked">
+          <p><a class="ref" href="http://codepen.io/brenna/full/mybQVx/">http://codepen.io/brenna/full/mybQVx/</a></p>
+          <aside class="notes">
+            <p>only other way i've seen this done with live text is with -webkit-background-clip: text; and that's only webkit!</p>
+          </aside>
+        </section>
+
+        <section>
+          <h3 >gradient text for all<sup>*</sup>  the browsers!</h3>
+          <p>sorrynotsorry,<br> <code>-webkit-background-clip: text;</code></p>
+          <br>
+          <br>
+          <p class="small">* actually sorry, < IE9</p>
+        </section>
+
+        <section data-background="img/bride-of-frankenstein.jpg">
+          <h1>again! again!</h1>
+        </section>
+
+        <section>
+          <style>
+            .space-text {
+              font-family: "Syncopate";
+              text-transform: uppercase;
+            }
+          </style>
+          <svg viewBox="0 0 200 90" class="space-text">
+            <defs>
+              <pattern id="space" patternUnits="userSpaceOnUse" width="200" height="90">
+                <image xlink:href="img/space.gif" width="200" height="90" preserveAspectRatio="xMidYMid slice"/>
+              </pattern>
+            </defs>
+
+            <text fill="url(#space)" class="line1" x="0" y="33" font-size="46">space</text>
+            <text fill="url(#space)" class="line2" x="0" y="60" font-size="28.5">the final</text>
+            <text fill="url(#space)" class="line3" x="0" y="85" font-size="29.5">frontier</text>
+          </svg>
+          <a href="http://codepen.io/brenna/full/vEBQra/" class="ref">http://codepen.io/brenna/full/vEBQra/</a>
+        </section>
+
+        <section>
+          <h3 class="main">SVG can...</h3>
+          <h1>fill text with gifs!!!</h1>
+        </section>
+
+         <!-- ===============================================
+          image effects
+        ================================================ -->
+        <section data-background="#128B98">
+          <h3 class="main">SVG can do...</h3>
+          <h1>image effects</h1>
+        </section>
+
+        <section>
+          <h3>SVG Portrait Studio</h3>
+          <img src="img/portrait-studio.png" alt="" class="naked" width="600">
+          <br>
+          <a href="http://codepen.io/brenna/pen/ogXeyd/" class="ref">http://codepen.io/brenna/pen/ogXeyd/</a>
+        </section>
+
+        <section>
+          <h3>SVG Portrait Studio</h3>
+          <p>&lt;image&gt;</p>
+          <p class="small">+</p>
+          <p>&lt;radialGradient&gt;</p>
+          <p class="small">+</p>
+          <p>&lt;mask&gt;</p>
+        </section>
+
+        <section data-background-image="SRC/gradient.jpg">
+          <ul>
+            <h3>&lt;mask&gt;</h3>
+            <li><p>like a cookie cutter</p></li>
+            <li><p>black fill = opaque mask<br>white fill = transparent mask</p></li>
+            <li><p>see also &lt;clipPath&gt;</p></li>
+          </ul>
+        </section>
+
+        <section data-background-image="SRC/gradient.jpg">
+          <h3>&lt;mask&gt;</h3>
+          <pre><code>
+  &lt;defs&gt;
+    &lt;radialGradient id="gradient"&gt;
+      &lt;stop offset="80%" stop-color="#fff"/&gt;
+      &lt;stop offset="100%" stop-color="#000"/&gt;
+    &lt;/radialGradient&gt;
+    &lt;mask id="vignette" maskUnits="objectBoundingBox"&gt;
+      &lt;ellipse fill="url(#gradient)" cx="365" cy="140" rx="90" ry="120" >
+      &lt;/ellipse&gt;
+    &lt;/mask&gt;
+  &lt;/defs&gt;
+        </code></pre>
+        <pre><code>
+  &lt;image mask="url(#vignette)" xlink:href="nero-head.jpg" width="200" height="240" preserveAspectRatio="xMidYMin slice" x="270" y="20"/&gt;
+         </code></pre>
+        </section>
+
+        <section>
+          <h3>filter effects</h3>
+          <img src="img/blur-filter.png" alt="" width="800">
+          <p><a href="http://codepen.io/ejsado/full/kmrtp/" class="ref">http://codepen.io/ejsado/full/kmrtp/</a></p>
+        </section>
+
+        <section>
+          <h3>blur filter</h3>
+          <pre><code>
+  &lt;filter id="blur"&gt;
+    &lt;feGaussianBlur stdDeviation="3" /&gt;
+    &lt;feComponentTransfer&gt;
+        &lt;feFuncR type="linear" slope="0.7"/&gt;
+        &lt;feFuncG type="linear" slope="0.7"/&gt;
+        &lt;feFuncB type="linear" slope="0.7"/&gt;
+    &lt;/feComponentTransfer&gt;
+  &lt;/filter>
+          </code></pre>
+          <pre><code>
+ section:before {
+  filter: url(#blur);
+ }
+          </code></pre>
+          <p><a href="http://codepen.io/ejsado/full/kmrtp/" class="ref">http://codepen.io/ejsado/full/kmrtp/</a></p>
+        </section>
+
+        <section>
+          <h3>SVG Instagram</h3>
+          <img src="img/svg-instagram.png" alt="" width="600" class="naked">
+          <p><a class="ref" href="http://www.creativebloq.com/netmag/how-go-beyond-basics-svg-filters-71412280">http://www.creativebloq.com/netmag/how-go-beyond-basics-svg-filters-71412280</a></p>
+        </section>
+
+        <section>
+          <h3>SVG Instagram</h3>
+          <br>
+          <div class="half">
+            <p><code>feTurbulence</code><br> <span class="small">noise</span></p>
+            <br>
+            <p><code>feGaussianBlur</code></p>
+          </div>
+          <div class="half">
+            <p><code>feComponentTransfer</code><br><span class="small">RGB channel adjustments</span></p>
+            <br>
+            <p><code>feDiffuseLighting</code><br> <span class="small">light source shadows</span></p>
+          </div>
+        </section>
+
+         <!-- ===============================================
+          animations
+        ================================================ -->
+        <section data-background="#128B98">
+          <h3 class="main">SVG can do...</h3>
+          <h1>animations</h1>
+        </section>
+
+        <section>
+          <h3>SVGs that draw themselves</h3>
+          <img src="img/svg-draw.gif" alt="" width="700">
+          <br><a href="http://www.polygon.com/a/ps4-review/console" class="ref">Polygon PS4 Review</a>
+        </section>
+
+        <section>
+          <h3>SVGs that draw themselves</h3>
+            <p>long<br> <code>stroke-dasharray</code></p>
+            <p class="small">+</p>
+            <p>animated<br> <code>stroke-dashoffset</code></p>
+            <p><a href="http://css-tricks.com/svg-line-animation-works/" class="ref">How SVG Line Animation Works</a></p>
+        </section>
+
+        <section>
+          <h3>SVGs that draw themselves</h3>
+          <div class="third">
+          <img src="img/line-draw.gif" alt="" class="naked">
+           <!--  <svg viewBox="0 0 100 10">
+              <line x2="100" stroke-dasharray="100 100" stroke="hotpink">
+                <animate
+                  attributeName="stroke-dashoffset"
+                  dur="2"
+                  values="100; 0"
+                  repeatCount="indefinite"
+                />
+              </line>
+            </svg> -->
+          </div>
+          <div class="two-thirds">
+          <pre><code>
+  &lt;svg viewBox="0 0 100 10"&gt;
+    &lt;line x2="100" stroke-dasharray="100 100"
+    stroke-dashoffset="0" stroke="hotpink"&gt;
+      &lt;animate
+        attributeName="stroke-dashoffset"
+        dur="2"
+        values="0; 100"
+        repeatCount="indefinite"
+      /&gt;
+    &lt;/line&gt;
+  &lt;/svg&gt;
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>&lt;animate&gt;</h3>
+          <p>most SVG attributes are &lt;animate&gt;-able</p>
+          <a href="http://www.xanthir.com/etc/animatable-svg-attributes.html" class="ref">Animatable SVG attributes</a>
+        </section>
+
+        <section>
+          <h3>Q: Why not just &lt;animate&gt;<br> with CSS & JS?</h3>
+          <h3 class="fragment tweens">A: <img class="middle" src="img/cool-tweens.png"></h3>
+        </section>
+
+        <section>
+          <h3>SVG shape tweens</h3>
+          <img src="img/svg-quarters.gif" alt="" width="400">
+          <p><a href="http://bren.zone/svg-quarters/" class="ref">SVG Quarters</a></p>
+        </section>
+
+        <section>
+          <h3>SVG shape tweens</h3>
+          <p>&lt;animate&gt; a path's <code>d</code> attribute</p>
+          <div class="third">
+            <img src="img/morph.gif" alt="" class="naked">
+            <!-- <svg viewBox="0 0 200 200">
+              <path fill="goldenrod">
+                <animate
+                  attributeName="d"
+                  dur="2"
+                  repeatCount="indefinite"
+                  values="
+                    M100,0 L200,100 L100,200 L0,100;
+                    M100,50 L125,100 L100,150 L75,100;
+                    M100,0 L200,100 L100,200 L0,100"
+                />
+              </path>
+            </svg> -->
+          </div>
+          <div class="two-thirds">
+<pre><code>
+  &lt;path fill="goldenrod"&gt;
+    &lt;animate attributeName="d"
+      dur="2"
+      repeatCount="indefinite"
+      values="
+        M100,0 L200,100 L100,200 L0,100;
+        M100,50 L125,100 L100,150 L75,100;
+        M100,0 L200,100 L100,200 L0,100"
+    /&gt;
+  &lt;/path&gt;
+  </code></pre>
+          </div>
+          <a class="ref" href="http://codepen.io/noahblon/blog/an-intro-to-svg-animation-with-smil">Intro to SVG Animation with SMIL</a>
+        </section>
+
+        <!-- ===============================================
+          ::<conclusion>::
+        ================================================ -->
+
+        <section data-background-image="img/iceberg.jpg">
+          <h1>there's even more...</h1>
+        </section>
+
+        <section data-background-image="img/goonies.jpg">
+          <h1>go exploring</h1>
+          <br>
+          <p><a href="http://www.polygon.com/a/ps4-review">Pocket Guide to Writing SVG</a></p>
+          <p><a href="https://developer.mozilla.org/en-US/docs/Web/SVG">SVG on MDN</a></p>
+          <p><a href="http://tutorials.jenkov.com/svg/index.html">jenkov.com SVG Tutorials</a></p>
+        </section>
+
+        <section>
+          <h1 class="main">SVG <strong>Can</strong><br> Do That</h1>
+          <br>
+          <p><a href="http://twitter.com/brnnbrn">@brnnbrn</a> / thanks!</p>
+          <p><a href="http://talks.brennaobrien.com/svg">talks.brennaobrien.com/svg</a></p>
+
+        </section>
+
+      </div> <!-- /.slides -->
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script src="js/slides.js"></script>
+
+	</body>
+</html>
